@@ -2,10 +2,25 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
+    <link rel="stylesheet" href="semantic-ui/semantic.min.css" />
   </head>
   <body>
-    <div>
-      yo 
+    <div id="main" class="main ui">
+      <h1 class="ui dividing centered header">Movies</h1>
+      <div class='ui centered card'>
+        <div className='ui form'>
+          <div className='field'>
+            <label>movie</label>
+            <input type='text' ref='movie' />
+          </div>
+          <div class='ui centered card'>
+            <button id='searchButton' class='ui basic blue button' >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+    <script src='app.js'></script>
   </body>
 </html>
