@@ -18,7 +18,7 @@ define(function (require) {
     var injectMovieCards= function(movies){
       movies.forEach(function(movie){
         var movieCard= new MovieCard(movie);
-        movieCard.createMovieCardElement();
+        movieCard.initialize();
       })
     };
 

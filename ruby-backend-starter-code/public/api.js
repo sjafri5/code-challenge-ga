@@ -6,8 +6,17 @@ define(function (require) {
           return response.json()
         })
     };
+
+    var moreInfo= function(url){
+      return fetch(url)
+        .then(function(response){
+          return response.json()
+        })
+    };
+
     return {
-      submitSearch
+      submitSearch,
+      moreInfo
     }
   }();
 
