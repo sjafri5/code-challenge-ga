@@ -11,7 +11,7 @@ define(function (require) {
     };
 
     var fetchFavorites = function(){
-      var url = 'http://localhost:4567/favorites'
+      var url = 'https://ga-codechallenge.herokuapp.com/favorites'
       Api.fetchFavorites(url).then(function(response){
         injectFavoriteCards(response)
       });

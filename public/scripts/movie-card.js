@@ -69,7 +69,7 @@ define(function (require) {
     };
 
     this.saveToFavorites= function(){
-      var url = 'http://localhost:4567/favorites'
+      var url = 'https://ga-codechallenge.herokuapp.com/favorites'
       var movieObject = { name: this.movie.Title, oid: this.movie.imdbID }
       Api.saveToFavorites(url, movieObject).then(function(){
         console.log('saved>', e);
