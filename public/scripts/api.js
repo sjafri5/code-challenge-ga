@@ -17,6 +17,7 @@ define(function (require) {
     };
 
     var fetchFavorites= function(){
+      console.log('protocal', window.location.protocol);
       console.log('location', location.hostname);
       var url = 'http://localhost:4567/favorites'
       //var url = 'https://ga-codechallenge.herokuapp.com/favorites'
