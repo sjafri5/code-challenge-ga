@@ -14,10 +14,6 @@ define(function (require) {
       document.getElementById('cards-display-container').appendChild(movieCard);
     };
 
-    this.createText= function(){
-      return document.createTextNode(this.movie.Title);
-    };
-
     this.fetchMoreInfo= function(){
       var _this = this
       Api.fetchMoreInfo(this.movie.imdbID).then(function(response){

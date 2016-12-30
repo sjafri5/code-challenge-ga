@@ -15,6 +15,10 @@ define(function (require) {
       return card;
     }
 
+    this.createText= function(){
+      return document.createTextNode(this.movie.Title);
+    };
+
     this.movieDetailsExist = function(card){
       var children = card.childNodes;
       var lastMovieCardElement = children[(children.length - 1)];

@@ -13,7 +13,6 @@ define(function (require) {
     var fetchFavorites = function(){
       Api.fetchFavorites().then(function(response){
         var favorites = cleanMovieValues(response)
-        console.log('in herefavorite', favorites);
         injectFavoriteCards(favorites)
       });
     }
