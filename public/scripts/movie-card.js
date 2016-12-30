@@ -32,7 +32,7 @@ define(function (require) {
 
     this.fetchMoreInfo= function(){
       var _this = this
-      var url = 'http://www.omdbapi.com/?i=' + this.movie.imdbID
+      var url = 'https://www.omdbapi.com/?i=' + this.movie.imdbID
       Api.fetchMoreInfo(url).then(function(response){
         _this.injectMovieDetails(response);
         console.log('imdp', response);

@@ -31,7 +31,8 @@ define(function (require) {
     };
 
     var submitSearchRequest = function(movieTitle){
-      var url = 'http://www.omdbapi.com/?s=' + movieTitle
+      var url = 'https://www.omdbapi.com/?s=' + movieTitle
+      console.log('url', url);
       Api.submitSearch(url).then(function(response){
         injectMovieCards(response.Search)
         console.log('yo gotti', response.Search);
