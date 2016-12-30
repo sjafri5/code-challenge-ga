@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Movies and Shtuff</title>
+    <link rel="stylesheet" href="stylesheets/semantic-ui/semantic.min.css" />
+    <link rel="stylesheet" href="stylesheets/styles.css" />
+  </head>
+  <body>
+    <div id="main" class="main ui">
+      <h1 class="ui dividing centered header">Movies</h1>
+      <div class="ui grid">
+        <div class='eight wide column centered'>
+          <div class="ui grid">
+            <div class='eight wide column centered'>
+              <div class="ui action input centered">
+                <input type='text' placeholder='Search for a movie...' ref='movie' id='movie-input' />
+                <button id='submit-search' class='ui basic blue button' >
+                  Search
+                </button>
+              </div>
+            </div>
+            <a class="header" id="favorites">View Favorites.</a>
+          </div>
+        </div>
+      </div>
+      <div class="ui grid">
+        <div 
+          class='ui relaxed divided list eight wide column centered' 
+          id='cards-display-container' >
+        </div>
+      </div>
+    </div>
+    <script data-main="scripts/app" src="scripts/require.js"></script>
+  </body>
+</html>
