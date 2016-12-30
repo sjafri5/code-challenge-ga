@@ -1,5 +1,6 @@
 define(function (require) {
   var Api = require('api')
+  var PageManager= require('page-manager')
   var MovieCard= require('movie-card')
 
   var MovieForm = function(){
@@ -7,20 +8,13 @@ define(function (require) {
       document.getElementById("submit-search").onclick = function() { 
         var movieTitle = captureSearchInput();
         clearInput();
-        clearDisplayContainer();
+        PageManager.clearDisplayContainer();
         submitSearchRequest(movieTitle);
       };
     };
 
     var clearInput= function(){
       document.getElementById("movie-input").value = "";
-    }
-    
-    var clearDisplayContainer= function(){
-      var searchResultContainer = document.getElementById("cards-display-container");
-      while (searchResultContainer.firstChild) {
-        searchResultContainer.removeChild(searchResultContainer.firstChild);
-      }
     }
 
     var injectMovieCards= function(movies){
@@ -33,7 +27,6 @@ define(function (require) {
     var submitSearchRequest = function(movieTitle){
       Api.submitSearch(movieTitle).then(function(response){
         injectMovieCards(response.Search)
-        console.log('yo gotti', response.Search);
       });
     }
 

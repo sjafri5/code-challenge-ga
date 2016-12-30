@@ -12,3 +12,7 @@ div.bordered {
 .small-margins{
   margin-left: 20px;
 }
+
+a {
+  cursor: pointer;
+}

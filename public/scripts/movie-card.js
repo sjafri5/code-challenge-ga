@@ -23,10 +23,20 @@ define(function (require) {
     }
 
     this.injectMovieDetails= function(movieDetails){
+      console.log('movieDetails', movieDetails);
       var div = document.createElement("div");
       div.setAttribute('class', 'item movie-details')
-      var text = document.createTextNode(movieDetails.Genre);
-      div.appendChild(text);  
+      var ul = document.createElement("ul");
+
+      var detailKeys = ['Year', 'Runtime', 'Genre', 'Language', 'Plot', 'Director', 'Actors']
+      detailKeys.map(function(key){
+        var li = document.createElement("li");
+        var text = document.createTextNode(key + ': ' + movieDetails[key]);
+        li.appendChild(text);
+        ul.appendChild(li);
+      })
+
+      div.appendChild(ul);  
       document.getElementById(this.movie.imdbID).appendChild(div)
     };
 

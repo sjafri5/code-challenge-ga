@@ -1,11 +1,17 @@
 define(function (require) {
   var Api = require('api')
+  var PageManager= require('page-manager')
   var FavoriteCard= require('favorite-card')
 
   var Favorites= function(){
     var linkListener = function(){
       document.getElementById("favorites").onclick = function() { 
-        clearSearchResults();
+        PageManager.clearDisplayContainer();
+        fetchFavorites()
+      };
+
+      document.getElementById("favorites").onclick = function() { 
+        PageManager.clearDisplayContainer();
         fetchFavorites()
       };
     };
@@ -31,14 +37,6 @@ define(function (require) {
         var favoriteCard= new FavoriteCard(favorite);
         favoriteCard.initialize();
       })
-    }
-
-
-    var clearSearchResults = function(){
-      var searchResultContainer = document.getElementById("cards-display-container");
-      while (searchResultContainer.firstChild) {
-        searchResultContainer.removeChild(searchResultContainer.firstChild);
-      }
     }
 
     return {
