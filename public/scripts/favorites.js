@@ -12,7 +12,18 @@ define(function (require) {
 
     var fetchFavorites = function(){
       Api.fetchFavorites().then(function(response){
-        injectFavoriteCards(response)
+        var favorites = cleanMovieValues(response)
+        console.log('in herefavorite', favorites);
+        injectFavoriteCards(favorites)
+      });
+    }
+
+    var cleanMovieValues = function(favorites){
+      return favorites.map(function(favorite){
+        return {
+          Title: favorite.name,
+          imdbID: favorite.oid
+        }
       });
     }
 
