@@ -21,10 +21,28 @@ define(function (require) {
         })
     };
 
+    var saveToFavorites= function(url, movie){
+      var data = new FormData();
+      var foo = JSON.stringify(movie)
+      data.append('json', JSON.stringify( movie ) );
+      var requestObject = {
+        method: 'POST',
+        body: data,
+      };
+      console.log('res', requestObject);
+
+      return fetch(url, requestObject)
+        .then(function(response){
+          console.log('response', response);
+          return response.json()
+        })
+    };
+
     return {
       submitSearch,
       fetchMoreInfo,
-      fetchFavorites
+      fetchFavorites,
+      saveToFavorites
     }
   }();
 

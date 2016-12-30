@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'json'
 
 get '/' do
   File.read('./views/index.html')
@@ -10,14 +11,16 @@ get '/favorites' do
   File.read('data.json')
 end
 
-#post '/favorites' do
-  #puts 'or here?'
-  #file = JSON.parse(File.read('data.json'))
-  ##unless (params[:name] && params[:oid]) do
-   ##return 'Invalid Request'
-  ##end
-  #movie = { name: params[:name], oid: params[:oid] }
-  #file << movie
-  #File.write('data.json',JSON.pretty_generate(file))
-  #movie.to_json
-#end
+post '/favorites' do
+  movie_object = JSON.parse(params['json'], symbolize_names: true)
+
+  file = JSON.parse(File.read('data.json'))
+  unless (movie_object[:name] && movie_object[:oid])
+    puts 'invalid request'
+   return 'Invalid Request'
+  end
+  movie = { name: movie_object[:name], oid: movie_object[:oid] }
+  file << movie
+  File.write('data.json',JSON.pretty_generate(file))
+  movie.to_json
+end

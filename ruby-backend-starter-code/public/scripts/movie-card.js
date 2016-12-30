@@ -58,14 +58,23 @@ define(function (require) {
     }
       
     this.createHeartIcon = function(){
+      var _this = this;
       var heartIcon = document.createElement('i');
       heartIcon.setAttribute('class', 'large heart middle aligned icon small-margins');
       heartIcon.addEventListener('click', function(e){
         e.stopPropagation();
-        console.log('hear shtuff>', e);
+        _this.saveToFavorites();
       })
       return heartIcon;
     };
+
+    this.saveToFavorites= function(){
+      var url = 'http://localhost:4567/favorites'
+      var movieObject = { name: this.movie.Title, oid: this.movie.imdbID }
+      Api.saveToFavorites(url, movieObject).then(function(){
+        console.log('saved>', e);
+      })
+    }
   };
 
 
