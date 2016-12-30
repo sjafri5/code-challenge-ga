@@ -7,7 +7,14 @@ define(function (require) {
         })
     };
 
-    var moreInfo= function(url){
+    var fetchMoreInfo= function(url){
+      return fetch(url)
+        .then(function(response){
+          return response.json()
+        })
+    };
+
+    var fetchFavorites= function(url){
       return fetch(url)
         .then(function(response){
           return response.json()
@@ -16,7 +23,8 @@ define(function (require) {
 
     return {
       submitSearch,
-      moreInfo
+      fetchMoreInfo,
+      fetchFavorites
     }
   }();
 

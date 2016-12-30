@@ -7,12 +7,20 @@ define(function (require) {
       document.getElementById("submit-search").onclick = function() { 
         var movieTitle = captureSearchInput();
         clearInput();
+        clearDisplayContainer();
         submitSearchRequest(movieTitle);
       };
     };
 
     var clearInput= function(){
       document.getElementById("movie-input").value = "";
+    }
+    
+    var clearDisplayContainer= function(){
+      var searchResultContainer = document.getElementById("cards-display-container");
+      while (searchResultContainer.firstChild) {
+        searchResultContainer.removeChild(searchResultContainer.firstChild);
+      }
     }
 
     var injectMovieCards= function(movies){

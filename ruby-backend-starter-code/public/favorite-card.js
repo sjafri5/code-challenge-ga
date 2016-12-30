@@ -1,33 +1,31 @@
 define(function (require) {
   var Api = require('api')
 
-  function MovieCard(movie) {
-    this.movie= movie;
+  function FavoriteCard(favorite) {
+    this.favorite= favorite;
 
     this.initialize= function(){
-      var movieCard = this.createMovieDiv();
-      var heartIcon = this.createHeartIcon();
+      var card = this.createFavoriteDiv();
       var textnode = this.createText();
-      movieCard.appendChild(heartIcon);  
-      movieCard.appendChild(textnode);  
-      document.getElementById('cards-display-container').appendChild(movieCard);
+      card.appendChild(textnode);  
+      document.getElementById("cards-display-container").appendChild(card);
     };
 
     this.createText= function(){
-      return document.createTextNode(this.movie.Title);
+      return document.createTextNode(this.favorite.name);
     };
 
-    this.createMovieDiv = function(){
+    this.createFavoriteDiv = function(){
       var _this = this
-      var movieCard = document.createElement("div");
-      movieCard.setAttribute('class', 'item movie-card')
-      movieCard.setAttribute('id', this.movie.imdbID)
-      movieCard.addEventListener('click', function(e){
+      var card = document.createElement("div");
+      card.setAttribute('class', 'item movie-card')
+      card.setAttribute('id', this.favorite.oid)
+      card.addEventListener('click', function(e){
         if (!_this.movieDetailsExist(movieCard)) {
           _this.fetchMoreInfo();
         }
       })
-      return movieCard;
+      return card;
     };
 
     this.fetchMoreInfo= function(){
@@ -69,5 +67,5 @@ define(function (require) {
   };
 
 
-  return MovieCard;
+  return FavoriteCard;
 });
