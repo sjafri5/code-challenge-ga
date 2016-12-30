@@ -32,8 +32,7 @@ define(function (require) {
 
     this.fetchMoreInfo= function(){
       var _this = this
-      var url = 'https://www.omdbapi.com/?i=' + this.movie.imdbID
-      Api.fetchMoreInfo(url).then(function(response){
+      Api.fetchMoreInfo(this.movie.imdbID).then(function(response){
         _this.injectMovieDetails(response);
         console.log('imdp', response);
       });
@@ -69,10 +68,9 @@ define(function (require) {
     };
 
     this.saveToFavorites= function(){
-      var url = 'https://ga-codechallenge.herokuapp.com/favorites'
       var movieObject = { name: this.movie.Title, oid: this.movie.imdbID }
-      Api.saveToFavorites(url, movieObject).then(function(){
-        console.log('saved>', e);
+      Api.saveToFavorites(movieObject).then(function(){
+        console.log('saved');
       })
     }
   };

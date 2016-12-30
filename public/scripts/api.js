@@ -1,30 +1,37 @@
 define(function (require) {
   var Api= function(){
-    var submitSearch= function(url){
+    var submitSearch= function(movieTitle){
+      var url = 'https://www.omdbapi.com/?s=' + movieTitle
       return fetch(url)
         .then(function(response){
           return response.json()
         })
     };
 
-    var fetchMoreInfo= function(url){
+    var fetchMoreInfo= function(id){
+      var url = 'https://www.omdbapi.com/?i=' + id
       return fetch(url)
         .then(function(response){
           return response.json()
         })
     };
 
-    var fetchFavorites= function(url){
+    var fetchFavorites= function(){
+      console.log('location', location.hostname);
+      var url = 'http://localhost:4567/favorites'
+      //var url = 'https://ga-codechallenge.herokuapp.com/favorites'
       return fetch(url)
         .then(function(response){
           return response.json()
         })
     };
 
-    var saveToFavorites= function(url, movie){
+    var saveToFavorites= function(movie){
+      console.log('location', location.hostname);
+      var url = 'http://localhost:4567/favorites'
+      //var url = 'https://ga-codechallenge.herokuapp.com/favorites'
       var data = new FormData();
-      var foo = JSON.stringify(movie)
-      data.append('json', JSON.stringify( movie ) );
+      data.append('json', JSON.stringify(movie));
       var requestObject = {
         method: 'POST',
         body: data,
