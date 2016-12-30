@@ -1,5 +1,5 @@
 requirejs.config({
-  baseUrl: './'
+  baseUrl: './scripts/'
 });
 
 requirejs(['movie-form', 'favorites'],
