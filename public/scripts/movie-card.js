@@ -1,11 +1,12 @@
 define(function (require) {
   var Api = require('api')
+  var Card = require('card')
 
   function MovieCard(movie) {
     this.movie= movie;
 
     this.initialize= function(){
-      var movieCard = this.createMovieDiv();
+      var movieCard = this.createCardContainer();
       var heartIcon = this.createHeartIcon();
       var textnode = this.createText();
       movieCard.appendChild(heartIcon);  
@@ -15,19 +16,6 @@ define(function (require) {
 
     this.createText= function(){
       return document.createTextNode(this.movie.Title);
-    };
-
-    this.createMovieDiv = function(){
-      var _this = this
-      var movieCard = document.createElement("div");
-      movieCard.setAttribute('class', 'item movie-card')
-      movieCard.setAttribute('id', this.movie.imdbID)
-      movieCard.addEventListener('click', function(e){
-        if (!_this.movieDetailsExist(movieCard)) {
-          _this.fetchMoreInfo();
-        }
-      })
-      return movieCard;
     };
 
     this.fetchMoreInfo= function(){
@@ -46,16 +34,6 @@ define(function (require) {
       document.getElementById(this.movie.imdbID).appendChild(div)
     };
 
-    this.movieDetailsExist = function(movieCard){
-      var children = movieCard.childNodes;
-      var lastMovieCardElement = children[(children.length - 1)];
-      return this.hasClass(lastMovieCardElement, 'movie-details');
-    }
-
-    this.hasClass= function(el, cls) {
-      return el.className && new RegExp("(\\s|^)" + cls + "(\\s|$)").test(el.className);
-    }
-      
     this.createHeartIcon = function(){
       var _this = this;
       var heartIcon = document.createElement('i');
@@ -75,6 +53,7 @@ define(function (require) {
     }
   };
 
+  MovieCard.prototype = new Card('Search');
 
   return MovieCard;
 });
