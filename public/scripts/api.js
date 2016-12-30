@@ -17,10 +17,7 @@ define(function (require) {
     };
 
     var fetchFavorites= function(){
-      console.log('protocal', window.location.protocol);
-      console.log('location', location.hostname);
-      var url = 'http://localhost:4567/favorites'
-      //var url = 'https://ga-codechallenge.herokuapp.com/favorites'
+      var url = window.location.href + '/favorites' 
       return fetch(url)
         .then(function(response){
           return response.json()
@@ -28,9 +25,7 @@ define(function (require) {
     };
 
     var saveToFavorites= function(movie){
-      console.log('location', location.hostname);
-      var url = 'http://localhost:4567/favorites'
-      //var url = 'https://ga-codechallenge.herokuapp.com/favorites'
+      var url = window.location.href + '/favorites' 
       var data = new FormData();
       data.append('json', JSON.stringify(movie));
       var requestObject = {
