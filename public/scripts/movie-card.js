@@ -27,10 +27,12 @@ define(function (require) {
       var div = document.createElement("div");
       div.setAttribute('class', 'item movie-details')
       var ul = document.createElement("ul");
+      ul.setAttribute('class', 'list-group')
 
       var detailKeys = ['Year', 'Runtime', 'Genre', 'Language', 'Plot', 'Director', 'Actors']
       detailKeys.map(function(key){
         var li = document.createElement("li");
+        li.setAttribute('class', 'list-group-item')
         var text = document.createTextNode(key + ': ' + movieDetails[key]);
         li.appendChild(text);
         ul.appendChild(li);
@@ -42,8 +44,8 @@ define(function (require) {
 
     this.createHeartIcon = function(){
       var _this = this;
-      var heartIcon = document.createElement('i');
-      heartIcon.setAttribute('class', 'large heart middle aligned icon small-margins');
+      var heartIcon = document.createElement('span');
+      heartIcon.setAttribute('class', 'glyphicon glyphicon-heart');
       heartIcon.addEventListener('click', function(e){
         e.stopPropagation();
         _this.saveToFavorites();

@@ -11,10 +11,20 @@ div.centered-horizontal {
   text-align: center;
 }
 
+.movie-card{
+  border: 1px solid 'gray';
+  min-height: 3em;
+  cursor: pointer;
+}
+
 #favorites {
   text-align: right;
 }
 
 a {
   cursor: pointer;
+}
+
+.movie-page-header{
+  text-align: center;
 }

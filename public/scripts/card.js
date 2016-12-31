@@ -5,7 +5,7 @@ define(function (require) {
     this.createCardContainer = function(){
       var _this = this
       var card = document.createElement("div");
-      card.setAttribute('class', 'item movie-card')
+      card.setAttribute('class', 'card card-block movie-card')
       card.setAttribute('id', this.movie.imdbID)
       card.addEventListener('click', function(e){
         if (_this.cardType == 'Search' && !_this.movieDetailsExist(card)) {
@@ -16,7 +16,11 @@ define(function (require) {
     }
 
     this.createText= function(){
-      return document.createTextNode(this.movie.Title);
+      var h4= document.createElement("h4");
+      h4.setAttribute('class', 'card-title')
+      var textNode = document.createTextNode(this.movie.Title);
+      h4.appendChild(textNode);  
+      return h4
     };
 
     this.movieDetailsExist = function(card){
