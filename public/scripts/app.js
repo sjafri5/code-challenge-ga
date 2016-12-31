@@ -1,3 +1,4 @@
+// this line configs requirejs so it knows the directory in which to look for dependancies
 requirejs.config({
   baseUrl: './scripts/'
 });
