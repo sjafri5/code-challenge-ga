@@ -42,6 +42,7 @@ define(function (require) {
       document.getElementById(this.movie.imdbID).appendChild(div)
     };
 
+    // we create a heart icon element using classes that bootstrap gives us. We also add an eventlistener that that will trigger a callback upon click. That will stop propogation, meaning to stay the event won't bubble up the DOM. it will then call saveToFavorites.
     this.createHeartIcon = function(){
       var _this = this;
       var heartIcon = document.createElement('span');
@@ -53,6 +54,7 @@ define(function (require) {
       return heartIcon;
     };
 
+    // here we format the movieData for the backend and then call the Api module to send it.
     this.saveToFavorites= function(){
       var movieObject = { name: this.movie.Title, oid: this.movie.imdbID }
       Api.saveToFavorites(movieObject).then(function(){
@@ -61,6 +63,7 @@ define(function (require) {
     }
   };
 
+  // MovieCard inherits from the Card constructor
   MovieCard.prototype = new Card('Search');
 
   return MovieCard;
