@@ -2,24 +2,34 @@
   <head>
     <meta charset="UTF-8">
     <title>Movies and Shtuff</title>
-    <link rel="stylesheet" href="stylesheets/semantic-ui/semantic.min.css" />
+    <link rel="stylesheet" href="stylesheets/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="stylesheets/styles.css" />
   </head>
   <body>
-    <div id="main" class="main ui">
-      <h1 class="ui dividing centered header">Movies</h1>
-      <div class="ui grid">
-        <div class='eight wide column centered'>
-          <div class="ui grid">
-            <div class='eight wide column centered'>
-              <div class="ui action input centered">
-                <input type='text' placeholder='Search for a movie...' ref='movie' id='movie-input' />
-                <button id='submit-search' class='ui basic blue button' >
-                  Search
-                </button>
-              </div>
-            </div>
-            <a class="header" id="favorites">View Favorites.</a>
+    <div id="main" class="container">
+      <div class="row centered-horizontal">
+        <div class="col-md-12">
+          <h1 class='page-header movie-page-header'>Movies</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9">
+          <div class="input-group input-group-lg">
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder='Search for a movie...' 
+              ref='movie' 
+              id='movie-input'
+            >
+            <span class="input-group-btn">
+              <button id='submit-search' class="btn btn-primary" type="button">Search</button>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="input-group input-group-lg">
+            <button id='favorites' class="btn btn-success btn-lg" type="button">view favorites</button>
           </div>
         </div>
       </div>

@@ -3,14 +3,16 @@ div.bordered {
   border-width: 5px;
 }
 
-#small-margins{
-  border-style: solid;
-  border-width: 2px;
-  margin: 20px;
+div.centered-horizontal {
+  margin: auto;
 }
 
-.small-margins{
-  margin-left: 20px;
+.movie-page-header{
+  text-align: center;
+}
+
+#favorites {
+  text-align: right;
 }
 
 a {
