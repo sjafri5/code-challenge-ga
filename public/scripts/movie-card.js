@@ -23,16 +23,15 @@ define(function (require) {
     }
 
     this.injectMovieDetails= function(movieDetails){
-      console.log('movieDetails', movieDetails);
       var div = document.createElement("div");
-      div.setAttribute('class', 'item movie-details')
-      var ul = document.createElement("ul");
-      ul.setAttribute('class', 'list-group')
+      div.setAttribute('class', 'item movie-details row')
+      var ul = document.createElement("div");
+      ul.setAttribute('class', 'row')
 
       var detailKeys = ['Year', 'Runtime', 'Genre', 'Language', 'Plot', 'Director', 'Actors']
       detailKeys.map(function(key){
-        var li = document.createElement("li");
-        li.setAttribute('class', 'list-group-item')
+        var li = document.createElement("div");
+        li.setAttribute('class', 'col-xs-10 col-xs-offset-1')
         var text = document.createTextNode(key + ': ' + movieDetails[key]);
         li.appendChild(text);
         ul.appendChild(li);
@@ -45,13 +44,16 @@ define(function (require) {
     // we create a heart icon element using classes that bootstrap gives us. We also add an eventlistener that that will trigger a callback upon click. That will stop propogation, meaning to stay the event won't bubble up the DOM. it will then call saveToFavorites.
     this.createHeartIcon = function(){
       var _this = this;
+      var div = document.createElement("div");
+      div.setAttribute('class', 'col-xs-1')
       var heartIcon = document.createElement('span');
-      heartIcon.setAttribute('class', 'glyphicon glyphicon-heart');
+      heartIcon.setAttribute('class', 'heart-icon glyphicon glyphicon-heart');
       heartIcon.addEventListener('click', function(e){
         e.stopPropagation();
         _this.saveToFavorites();
       })
-      return heartIcon;
+      div.appendChild(heartIcon);
+      return div;
     };
 
     // here we format the movieData for the backend and then call the Api module to send it.

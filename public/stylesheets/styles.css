@@ -7,14 +7,23 @@ div.centered-horizontal {
   margin: auto;
 }
 
+#cards-display-container {
+  margin-top: 5em
+}
+
 .movie-page-header{
   text-align: center;
 }
 
 .movie-card{
-  border: 1px solid 'gray';
+  border: 1px solid gray;
+  vertical-align: middle;
   min-height: 3em;
   cursor: pointer;
+}
+
+.heart-icon{
+  margin-top: 0.8em;
 }
 
 #favorites {
