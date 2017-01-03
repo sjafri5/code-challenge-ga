@@ -1,6 +1,7 @@
 define(function (require) {
   var Api = require('api')
   var Card = require('card')
+  var PageManager= require('page-manager')
 
   function MovieCard(movie) {
     this.movie= movie;
@@ -60,7 +61,7 @@ define(function (require) {
     this.saveToFavorites= function(){
       var movieObject = { name: this.movie.Title, oid: this.movie.imdbID }
       Api.saveToFavorites(movieObject).then(function(){
-        console.log('saved');
+        PageManager.triggerAlert();
       })
     }
   };

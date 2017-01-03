@@ -7,7 +7,7 @@ define(function (require) {
     this.createCardContainer = function(){
       var _this = this // saving what 'this' refers to in the outer function so that we can use it inside an inner function where the assignment of this will have changed.
       var card = document.createElement("div"); // creating a div
-      card.setAttribute('class', 'row card card-block movie-card') // assigning class names to that div
+      card.setAttribute('class', 'row movie-card') // assigning class names to that div
       card.setAttribute('id', this.movie.imdbID) // assigning an ID
       
 

@@ -11,6 +11,10 @@ div.centered-horizontal {
   margin-top: 5em
 }
 
+#alert-banner{
+  margin-top: 2em
+}
+
 .movie-page-header{
   text-align: center;
 }

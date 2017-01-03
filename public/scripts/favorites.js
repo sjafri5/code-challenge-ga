@@ -1,7 +1,7 @@
 define(function (require) {
   //  We are requiring any dependancies that Favorites will have at the top.
 
-  var Api = require('api')
+    var Api = require('api')
     var PageManager= require('page-manager')
     var FavoriteCard= require('favorite-card')
 
