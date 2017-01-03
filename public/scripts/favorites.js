@@ -29,6 +29,7 @@ define(function (require) {
           //  it calls a f(x) on the PageManager module which seems to clean the display
           //  and it makes an internal call to fetchFavorites
           PageManager.clearDisplayContainer();
+          PageManager.updateTitle('Your Favorites');
           fetchFavorites()
         };
       };

@@ -12,6 +12,7 @@ define(function (require) {
         var movieTitle = captureSearchInput();
         clearInput();
         PageManager.clearDisplayContainer();
+        PageManager.updateTitle('Search Results:');
         submitSearchRequest(movieTitle);
       };
     };
